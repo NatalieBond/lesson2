@@ -16,9 +16,12 @@ def check_total_unused_space(the_most_unused_package, the_most_unused_space, pac
 
 while number_of_items != max_items:
     item_weight = int(input("What is your item's weight: "))
-    number_of_items += 1
     if item_weight == 0:
         break
+    if item_weight < 1 or item_weight > 10:
+        print("Invalid weight!")
+        continue
+    number_of_items += 1
     if package_weight + item_weight > 20:
         total_weight_sent += package_weight
         the_most_unused_space, the_most_unused_package = check_total_unused_space(the_most_unused_package, the_most_unused_space, package_weight, package_counter)
